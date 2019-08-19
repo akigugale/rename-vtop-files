@@ -25,10 +25,14 @@ fname = list()
 new_fname = list()
 for i in os.listdir():
     if i[15:22] == sub_code:
-        x = re.search(r'reference material|Reference Material|REFERENCE MATERIAL|Reference_Material|REFERENCE_MATERIAL', i)
-        start_name_index = x.span()[1]+1
-        fname.append(i) 
-        new_fname.append(sub_code+' - '+i[69:])
+        try:
+            x = re.search(r'reference material|Reference Material|REFERENCE MATERIAL|Reference_Material|REFERENCE_MATERIAL', i)    
+            start_name_index = x.span()[1]+1
+            fname.append(i) 
+            new_fname.append(sub_code+' - '+i[69:])           
+        except:
+            print("=======Error in "+i+" ====")
+            continue
 
 for i in range(len(new_fname)):
     print(fname[i], ' --> ', new_fname[i])
