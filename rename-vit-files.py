@@ -25,7 +25,7 @@ fname = list()
 new_fname = list()
 for i in os.listdir():
     if i[15:22] == sub_code:
-        x = re.search(r'Reference Material\b', i)
+        x = re.search(r'reference material|Reference Material|REFERENCE MATERIAL|Reference_Material|REFERENCE_MATERIAL', i)
         start_name_index = x.span()[1]+1
         fname.append(i) 
         new_fname.append(sub_code+' - '+i[69:])
